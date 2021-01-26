@@ -11,7 +11,7 @@ PREFIX = $(MIX_APP_PATH)/priv
 BUILD = $(MIX_APP_PATH)/obj
 SRCDIR = $(MIX_APP_PATH)/src
 
-NIF = $(PREFIX)/sample.so
+NIF_TERM = $(PREFIX)/sample_term.so
 NIF_SRC = $(wildcard src/*.cpp)
 NIF_HEADERS =$(wildcard src/*.h)
 
@@ -23,9 +23,9 @@ calling_from_make:
 
 all: install $(NIF_HEADERS) Makefile
 
-install: $(PREFIX) $(BUILD) $(NIF)
+install: $(PREFIX) $(BUILD) $(NIF_TERM)
 
-$(NIF): $(NIF_SRC)
+$(NIF_TERM): $(NIF_SRC)
 	@echo Compiling NIF Library $@
 	$(CC) -o $@ $(ERL_LDFLAGS) $(LDFLAGS) $(CFLAGS) $^
 
@@ -33,7 +33,7 @@ $(PREFIX) $(BUILD):
 	mkdir -v -p $@
 
 clean:
-	$(RM) $(NIF)
+	$(RM) $(NIF_TERM)
 
 .PHONY: all clean calling_from_make install
 

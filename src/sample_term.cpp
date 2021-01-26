@@ -63,7 +63,7 @@ static int upgrade(ErlNifEnv *env, void **priv, void **old_priv,
 
 static void unload(ErlNifEnv *env, void *priv) {}
 
-ERL_NIF_INIT(Elixir.NifSampleCpp.Nif.Sample, nif_funcs, &load, &reload, &upgrade,
-             &unload)
+ERL_NIF_INIT(Elixir.NifSampleCpp.Nif.SampleTerm, nif_funcs, &load, &reload,
+             &upgrade, &unload)
 
 // SPDX-License-Identifier: Apache-2.0
