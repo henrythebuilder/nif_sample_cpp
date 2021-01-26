@@ -18,6 +18,10 @@ defmodule NifSampleCpp.Nif.Sample do
   def hello() do
     :erlang.nif_error(:nif_not_loaded)
   end
+
+  def hello_int(_n) do
+    :erlang.nif_error(:nif_not_loaded)
+  end
 end
 
 # SPDX-License-Identifier: Apache-2.0
