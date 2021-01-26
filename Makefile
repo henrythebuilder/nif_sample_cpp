@@ -12,8 +12,8 @@ BUILD = $(MIX_APP_PATH)/obj
 SRCDIR = $(MIX_APP_PATH)/src
 
 NIF = $(PREFIX)/sample.so
-NIF_SRC = src/sample.cpp
-HEADERS =$(wildcard src/*.h)
+NIF_SRC = $(wildcard src/*.cpp)
+NIF_HEADERS =$(wildcard src/*.h)
 
 $(info "**** MIX_ENV set to [$(MIX_ENV)] ****")
 $(info "**** MIX_APP_PATH set to [$(MIX_APP_PATH)] ****")
@@ -21,7 +21,7 @@ $(info "**** MIX_APP_PATH set to [$(MIX_APP_PATH)] ****")
 calling_from_make:
 	mix compile
 
-all: install $(HEADER) Makefile
+all: install $(NIF_HEADERS) Makefile
 
 install: $(PREFIX) $(BUILD) $(NIF)
 
