@@ -42,16 +42,6 @@ defmodule NifSampleCpp.Nif.SampleTerm do
   def hello_float(_f) do
     :erlang.nif_error(:nif_not_loaded)
   end
-
-  @doc """
-  Pass a 'list of integer argument' to nif and return the same value
-
-  iex> [-1,2,3,4,5,0] = NifSampleCpp.Nif.SampleTerm.hello_list_of_int([-1,2,3,4,5,0])
-  """
-  @spec hello_list_of_int(list(integer())) :: list(integer())
-  def hello_list_of_int(_list) do
-    :erlang.nif_error(:nif_not_loaded)
-  end
 end
 
 # SPDX-License-Identifier: Apache-2.0

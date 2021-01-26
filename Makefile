@@ -9,10 +9,13 @@ ERL_LDFLAGS ?= -L$(ERL_EI_LIBDIR) -lei
 
 PREFIX = $(MIX_APP_PATH)/priv
 BUILD = $(MIX_APP_PATH)/obj
-SRCDIR = $(MIX_APP_PATH)/src
 
 NIF_TERM = $(PREFIX)/sample_term.so
-NIF_SRC = $(wildcard src/*.cpp)
+NIF_TERM_SRC = src/sample_term.cpp src/nif_tool.cpp
+
+NIF_LIST = $(PREFIX)/sample_list.so
+NIF_LIST_SRC = src/sample_list.cpp src/nif_tool.cpp
+
 NIF_HEADERS =$(wildcard src/*.h)
 
 $(info "**** MIX_ENV set to [$(MIX_ENV)] ****")
@@ -23,9 +26,13 @@ calling_from_make:
 
 all: install $(NIF_HEADERS) Makefile
 
-install: $(PREFIX) $(BUILD) $(NIF_TERM)
+install: $(PREFIX) $(BUILD) $(NIF_TERM) $(NIF_LIST)
 
-$(NIF_TERM): $(NIF_SRC)
+$(NIF_TERM): $(NIF_TERM_SRC)
+	@echo Compiling NIF Library $@
+	$(CC) -o $@ $(ERL_LDFLAGS) $(LDFLAGS) $(CFLAGS) $^
+
+$(NIF_LIST): $(NIF_LIST_SRC)
 	@echo Compiling NIF Library $@
 	$(CC) -o $@ $(ERL_LDFLAGS) $(LDFLAGS) $(CFLAGS) $^
 
