@@ -18,10 +18,11 @@ NIF_LIST_SRC = src/sample_list.cpp src/nif_tool.cpp
 
 NIF_HEADERS =$(wildcard src/*.h)
 
-$(info "**** MIX_ENV set to [$(MIX_ENV)] ****")
-$(info "**** MIX_APP_PATH set to [$(MIX_APP_PATH)] ****")
+$(info "<<< MIX_ENV set to [$(MIX_ENV)] >>>")
+$(info "<<< MIX_APP_PATH set to [$(MIX_APP_PATH)] >>>")
 
 calling_from_make:
+	@echo calling 'mix compile' ...
 	mix compile
 
 all: install $(NIF_HEADERS) Makefile
@@ -43,7 +44,7 @@ $(PREFIX) $(BUILD):
 	mkdir -v -p $@
 
 clean:
-	$(RM) $(NIF_TERM)
+	$(RM) $(NIF_TERM) $(NIF_LIST)
 
 .PHONY: all clean calling_from_make install
 
