@@ -1,6 +1,8 @@
 defmodule NifSampleCpp.Nif.SampleTest do
   use ExUnit.Case
 
+  doctest NifSampleCpp.Nif.Sample
+
   alias NifSampleCpp.Nif
 
   describe "nif sample init test:" do
