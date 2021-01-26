@@ -30,6 +30,13 @@ defmodule NifSampleCpp.Nif.SampleTest do
       end
     end
   end
+
+  describe "nif 'float' test:" do
+    test "simple float" do
+      f = 3.1415926535
+      assert Nif.Sample.hello_float(f) == f
+    end
+  end
 end
 
 # SPDX-License-Identifier: Apache-2.0
