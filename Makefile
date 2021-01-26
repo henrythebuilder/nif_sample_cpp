@@ -1,4 +1,4 @@
-CFLAGS ?= -O2 -Wall -Wextra -Wno-unused-parameter -pedantic
+CPPFLAGS ?= -O2 -Wall -Wextra -Werror -Wno-unused-parameter -std=c++2a -pedantic
 LDFLAGS += -fPIC -shared
 
 CC=g++
@@ -28,13 +28,16 @@ all: install $(NIF_HEADERS) Makefile
 
 install: $(PREFIX) $(BUILD) $(NIF_TERM) $(NIF_LIST)
 
+define COMPILE_NIF
+@echo Compiling NIF Library [$@]
+$(CC) -o $@ $(ERL_LDFLAGS) $(LDFLAGS) $(CPPFLAGS) $^
+endef
+
 $(NIF_TERM): $(NIF_TERM_SRC)
-	@echo Compiling NIF Library $@
-	$(CC) -o $@ $(ERL_LDFLAGS) $(LDFLAGS) $(CFLAGS) $^
+	$(COMPILE_NIF)
 
 $(NIF_LIST): $(NIF_LIST_SRC)
-	@echo Compiling NIF Library $@
-	$(CC) -o $@ $(ERL_LDFLAGS) $(LDFLAGS) $(CFLAGS) $^
+	$(COMPILE_NIF)
 
 $(PREFIX) $(BUILD):
 	mkdir -v -p $@
