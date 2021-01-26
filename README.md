@@ -1,6 +1,7 @@
 # NifSampleCpp
 
-**TODO: Add description**
+A sample project to evaluate the interoperability of Elixir with the native implemented functions (NIFs)
+
 
 ## Installation
 
