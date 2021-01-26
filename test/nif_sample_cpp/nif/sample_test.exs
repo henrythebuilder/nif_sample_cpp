@@ -37,6 +37,13 @@ defmodule NifSampleCpp.Nif.SampleTest do
       assert Nif.Sample.hello_float(f) == f
     end
   end
+
+  describe "test argument list" do
+    test "as list of int" do
+      list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+      assert Nif.Sample.hello_list_of_int(list) == list
+    end
+  end
 end
 
 # SPDX-License-Identifier: Apache-2.0
