@@ -24,3 +24,7 @@ nif_sample_cpp-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+# Ignore temporary object files
+/.ccls-cache/
+/obj/

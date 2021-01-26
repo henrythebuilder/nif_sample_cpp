@@ -6,3 +6,5 @@ defmodule NifSampleCppTest do
     assert NifSampleCpp.hello() == :world
   end
 end
+
+# SPDX-License-Identifier: Apache-2.0
