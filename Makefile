@@ -16,6 +16,9 @@ NIF_TERM_SRC = src/sample_term.cpp src/nif_tool.cpp
 NIF_LIST = $(PREFIX)/sample_list.so
 NIF_LIST_SRC = src/sample_list.cpp src/nif_tool.cpp
 
+NIF_RES = $(PREFIX)/sample_resource.so
+NIF_RES_SRC = src/sample_resource.cpp src/nif_tool.cpp
+
 NIF_HEADERS =$(wildcard src/*.h)
 
 $(info "<<< MIX_ENV set to [$(MIX_ENV)] >>>")
@@ -27,7 +30,7 @@ calling_from_make:
 
 all: install $(NIF_HEADERS) Makefile
 
-install: $(PREFIX) $(BUILD) $(NIF_TERM) $(NIF_LIST)
+install: $(PREFIX) $(BUILD) $(NIF_TERM) $(NIF_LIST) $(NIF_RES)
 
 define COMPILE_NIF
 @echo Compiling NIF Library [$@]
@@ -40,11 +43,14 @@ $(NIF_TERM): $(NIF_TERM_SRC)
 $(NIF_LIST): $(NIF_LIST_SRC)
 	$(COMPILE_NIF)
 
+$(NIF_RES): $(NIF_RES_SRC)
+	$(COMPILE_NIF)
+
 $(PREFIX) $(BUILD):
 	mkdir -v -p $@
 
 clean:
-	$(RM) $(NIF_TERM) $(NIF_LIST)
+	$(RM) $(NIF_TERM) $(NIF_LIST) $(NIF_RES)
 
 .PHONY: all clean calling_from_make install
 

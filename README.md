@@ -2,6 +2,12 @@
 
 A sample project to evaluate the interoperability of Elixir with the native implemented functions (NIFs)
 
+## NIF explained ...
+
+The first attempt is understand value under 'term' through methods 'hello_...', these methods get a 'term', the 'nif' extract the 'native' value and return the value re-coded as new 'term' with the value equal to the original one.
+
+### Play with `term`
+...
 
 ## Installation
 
