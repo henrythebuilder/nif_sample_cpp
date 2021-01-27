@@ -19,6 +19,13 @@ defmodule NifSampleCpp.Nif.SampleResourceTest do
       Nif.SampleResource.free_test_resource(res1)
       Nif.SampleResource.free_test_resource(res2)
     end
+
+    test "resource as map" do
+      id = 1234
+      text = 'resource as map'
+      resource = Nif.SampleResource.create_test_resource(id, text)
+      assert %{^id => ^text} = Nif.SampleResource.use_test_resource_as_map(resource)
+    end
   end
 end
 

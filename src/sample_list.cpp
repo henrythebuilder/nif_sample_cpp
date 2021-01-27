@@ -4,8 +4,8 @@
 #include <cstdint>
 #include <vector>
 
-static ERL_NIF_TERM hello_list_of_int(ErlNifEnv *env, int argc,
-                                      const ERL_NIF_TERM argv[]) {
+static ERL_NIF_TERM
+hello_list_of_int(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
   unsigned int length = 0;
   ERL_NIF_TERM list_term = argv[0];
   if (!enif_get_list_length(env, list_term, &length)) {
@@ -36,14 +36,18 @@ static int load(ErlNifEnv *env, void **priv, ERL_NIF_TERM info) { return 0; }
 
 static int reload(ErlNifEnv *env, void **priv, ERL_NIF_TERM info) { return 0; }
 
-static int upgrade(ErlNifEnv *env, void **priv, void **old_priv,
-                   ERL_NIF_TERM info) {
+static int
+upgrade(ErlNifEnv *env, void **priv, void **old_priv, ERL_NIF_TERM info) {
   return load(env, priv, info);
 }
 
 static void unload(ErlNifEnv *env, void *priv) {}
 
-ERL_NIF_INIT(Elixir.NifSampleCpp.Nif.SampleList, nif_funcs, &load, &reload,
-             &upgrade, &unload)
+ERL_NIF_INIT(Elixir.NifSampleCpp.Nif.SampleList,
+             nif_funcs,
+             &load,
+             &reload,
+             &upgrade,
+             &unload)
 
 // SPDX-License-Identifier: Apache-2.0

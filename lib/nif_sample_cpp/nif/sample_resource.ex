@@ -39,6 +39,19 @@ defmodule NifSampleCpp.Nif.SampleResource do
   end
 
   @doc """
+  Use the 'test' resource created in 'nif' as map
+
+  iex> id = 4321
+  iex> text = 'use doctest resource as map'
+  iex> nif_resource = NifSampleCpp.Nif.SampleResource.create_test_resource(id, text)
+  iex> %{^id => ^text} =  NifSampleCpp.Nif.SampleResource.use_test_resource_as_map(nif_resource)
+  iex>
+  """
+  def use_test_resource_as_map(_res) do
+    :erlang.nif_error(:nif_not_loaded)
+  end
+
+  @doc """
   Free the 'test' resource created in 'nif'
 
   iex> nif_resource = NifSampleCpp.Nif.SampleResource.create_test_resource(4321, 'free doctest resource')

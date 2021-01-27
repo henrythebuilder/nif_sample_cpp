@@ -10,8 +10,8 @@ static ERL_NIF_TERM hello_int(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[
   return extract_int_term(env, argv[0]);
 }
 
-static ERL_NIF_TERM hello_float(ErlNifEnv *env, int argc,
-                                const ERL_NIF_TERM argv[]) {
+static ERL_NIF_TERM
+hello_float(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
   ERL_NIF_TERM term = argv[0];
   double dd;
   if (enif_get_double(env, term, &dd))
@@ -29,14 +29,18 @@ static int load(ErlNifEnv *env, void **priv, ERL_NIF_TERM info) { return 0; }
 
 static int reload(ErlNifEnv *env, void **priv, ERL_NIF_TERM info) { return 0; }
 
-static int upgrade(ErlNifEnv *env, void **priv, void **old_priv,
-                   ERL_NIF_TERM info) {
+static int
+upgrade(ErlNifEnv *env, void **priv, void **old_priv, ERL_NIF_TERM info) {
   return load(env, priv, info);
 }
 
 static void unload(ErlNifEnv *env, void *priv) {}
 
-ERL_NIF_INIT(Elixir.NifSampleCpp.Nif.SampleTerm, nif_funcs, &load, &reload,
-             &upgrade, &unload)
+ERL_NIF_INIT(Elixir.NifSampleCpp.Nif.SampleTerm,
+             nif_funcs,
+             &load,
+             &reload,
+             &upgrade,
+             &unload)
 
 // SPDX-License-Identifier: Apache-2.0

@@ -9,6 +9,6 @@ ERL_NIF_TERM make_tuple_error(ErlNifEnv *env, const std::string text);
 
 ERL_NIF_TERM make_tuple_error(ErlNifEnv *env, const std::string text, const int n);
 
-#endif // NIF_TOOL_INCLUDED
+#endif  // NIF_TOOL_INCLUDED
 
 // SPDX-License-Identifier: Apache-2.0
