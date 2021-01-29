@@ -6,7 +6,7 @@ defmodule NifSampleCpp.Nif.SampleList do
   app = Mix.Project.config()[:app]
 
   def load_nifs do
-    nif_path = :filename.join(:code.priv_dir(unquote(app)), 'sample_list')
+    nif_path = :filename.join(:code.priv_dir(unquote(app)), 'libsample_list')
 
     case :erlang.load_nif(nif_path, 0) do
       :ok -> :ok

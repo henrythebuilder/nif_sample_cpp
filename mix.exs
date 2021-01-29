@@ -25,9 +25,7 @@ defmodule NifSampleCpp.MixProject do
         "coveralls.html": :test
       ],
       test_coverage: [tool: ExCoveralls],
-      compilers: [:elixir_make] ++ Mix.compilers(),
-      make_targets: ["all"],
-      make_clean: ["clean"]
+      compilers: [:cmake] ++ Mix.compilers()
     ]
   end
 
@@ -64,7 +62,7 @@ defmodule NifSampleCpp.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:elixir_make, "~> 0.4", runtime: false},
+      {:elixir_cmake, "~> 0.7.0", runtime: false},
       {:ex_doc, "~> 0.22", only: :docs, runtime: false},
       {:excoveralls, "~> 0.12", only: [:test]}
     ]
