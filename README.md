@@ -1,15 +1,18 @@
 # NifSampleCpp
 
-A sample project to evaluate the interoperability of Elixir with the native implemented functions (NIFs)
+A sample 'work\_in\_progress' project to evaluate the interoperability of Elixir with the native implemented functions (NIFs)
 
 ## NIF explained ...
 
 The first attempt is understand value under 'term' through methods 'hello_...', these methods get a 'term', the 'nif' extract the 'native' value and return the value re-coded as new 'term' with the value equal to the original one.
 
 ### Play with `term`
-...
+
+See code and test for details ...
 
 ## Installation
+
+**At the moment the project is only on [github](https://github.com/henrythebuilder/nif_sample_cpp).**
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 by adding `nif_sample_cpp` to your list of dependencies in `mix.exs`:
